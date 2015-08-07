@@ -206,11 +206,7 @@ private function generate_grad_students_query(&$query, $period){
 		$query->innerJoin("field_data_".self::$field_aliases['ethnicity'], 'ethnicity', 'users.uid = ethnicity.entity_id');
 		$query->condition(db_or()
 			->condition("race.".self::$field_aliases['race']."_value", $minorities, 'IN')
-			->condition("ethnicity.".self::$field_aliases['ethnicity']."_value", 0, '=')
-			//0 == Hispanic or Latino
-			//1 == Not Hispanic or Latino
-			//2 == unknown
-			// values are at */admin/config/people/accounts/fields/field_er_ethnicity
+			->condition("ethnicity.".self::$field_aliases['ethnicity']."_value", 0, '=')//0 == person is hispanic
 		);
 	}
 	
@@ -264,7 +260,10 @@ private function generate_grad_students_query(&$query, $period){
     //$disabilities = $this->get_allowed_values("field_er_disabilities");
     //unset($disabilities['None']); // not interested in counting "None" as a disability
     
-	$data["<hr/>Cumulative"] = $this->generate_column_data($count);
+    // This is super hacky! Just hard-coding in the range of EPSCoR project, 8/1/14 - 7/31/19
+    $cumulative_range = array(1406869200, 1564549200);
+
+	$data["<hr/>Cumulative"] = $this->generate_column_data($count, $cumulative_range);
 	if ($this->range)
 		$data["<hr/>Reporting Period -" . $this->range_string()] = $this->generate_column_data($count, $this->range);
 		

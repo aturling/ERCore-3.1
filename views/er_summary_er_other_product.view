@@ -31,7 +31,7 @@ $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['label'] = '';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-/* Field: Content: EPSCoR Presenter(s) */
+/* Field: Content: EPSCoR Researchers(s) */
 $handler->display->display_options['fields']['field_er_user_entity_reference']['id'] = 'field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['table'] = 'field_data_field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['field'] = 'field_er_user_entity_reference';
@@ -98,6 +98,166 @@ $handler->display->display_options['filters']['field_er_other_product_date_value
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['defaults']['query'] = FALSE;
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['query']['options']['distinct'] = TRUE;
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'list';
+$handler->display->display_options['style_options']['type'] = 'ol';
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['row_plugin'] = 'fields';
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Header: Global: Unfiltered text */
+$handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+$handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+$handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+$handler->display->display_options['header']['area_text_custom']['label'] = 'Filtering/sorting instructions';
+$handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
+$handler->display->display_options['header']['area_text_custom']['content'] = 'Use the fields below to filter results by date range or project team and/or change how the results are sorted.<br>';
+$handler->display->display_options['defaults']['relationships'] = FALSE;
+/* Relationship: Entity Reference: Referenced Entity */
+$handler->display->display_options['relationships']['field_er_user_entity_reference_target_id']['id'] = 'field_er_user_entity_reference_target_id';
+$handler->display->display_options['relationships']['field_er_user_entity_reference_target_id']['table'] = 'field_data_field_er_user_entity_reference';
+$handler->display->display_options['relationships']['field_er_user_entity_reference_target_id']['field'] = 'field_er_user_entity_reference_target_id';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = '';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+/* Field: Content: EPSCoR Researchers(s) */
+$handler->display->display_options['fields']['field_er_user_entity_reference']['id'] = 'field_er_user_entity_reference';
+$handler->display->display_options['fields']['field_er_user_entity_reference']['table'] = 'field_data_field_er_user_entity_reference';
+$handler->display->display_options['fields']['field_er_user_entity_reference']['field'] = 'field_er_user_entity_reference';
+$handler->display->display_options['fields']['field_er_user_entity_reference']['label'] = 'Researcher(s)';
+$handler->display->display_options['fields']['field_er_user_entity_reference']['element_type'] = 'span';
+$handler->display->display_options['fields']['field_er_user_entity_reference']['settings'] = array(
+  'link' => 0,
+);
+$handler->display->display_options['fields']['field_er_user_entity_reference']['delta_offset'] = '0';
+/* Field: Content: Date */
+$handler->display->display_options['fields']['field_er_other_product_date']['id'] = 'field_er_other_product_date';
+$handler->display->display_options['fields']['field_er_other_product_date']['table'] = 'field_data_field_er_other_product_date';
+$handler->display->display_options['fields']['field_er_other_product_date']['field'] = 'field_er_other_product_date';
+$handler->display->display_options['fields']['field_er_other_product_date']['element_type'] = 'span';
+$handler->display->display_options['fields']['field_er_other_product_date']['hide_empty'] = TRUE;
+$handler->display->display_options['fields']['field_er_other_product_date']['settings'] = array(
+  'format_type' => 'long',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_repeat_rule' => 'show',
+);
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+/* Sort criterion: Content: Title */
+$handler->display->display_options['sorts']['title']['id'] = 'title';
+$handler->display->display_options['sorts']['title']['table'] = 'node';
+$handler->display->display_options['sorts']['title']['field'] = 'title';
+$handler->display->display_options['sorts']['title']['exposed'] = TRUE;
+$handler->display->display_options['sorts']['title']['expose']['label'] = 'Title';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filter criterion: Content: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'er_other_product' => 'er_other_product',
+);
+/* Filter criterion: Content: Date (field_er_other_product_date) */
+$handler->display->display_options['filters']['field_er_other_product_date_value']['id'] = 'field_er_other_product_date_value';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['table'] = 'field_data_field_er_other_product_date';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['field'] = 'field_er_other_product_date_value';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['operator'] = '>=';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_other_product_date_value']['expose']['operator_id'] = 'field_er_other_product_date_value_op';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['expose']['label'] = 'Start Date';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['expose']['operator'] = 'field_er_other_product_date_value_op';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['expose']['identifier'] = 'start_date';
+$handler->display->display_options['filters']['field_er_other_product_date_value']['form_type'] = 'date_popup';
+/* Filter criterion: Content: Date (field_er_other_product_date) */
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['id'] = 'field_er_other_product_date_value_1';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['table'] = 'field_data_field_er_other_product_date';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['field'] = 'field_er_other_product_date_value';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['operator'] = '<=';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['expose']['operator_id'] = 'field_er_other_product_date_value_1_op';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['expose']['label'] = 'End Date';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['expose']['operator'] = 'field_er_other_product_date_value_1_op';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['expose']['identifier'] = 'end_date';
+$handler->display->display_options['filters']['field_er_other_product_date_value_1']['form_type'] = 'date_popup';
+/* Filter criterion: Field: Project Component (field_er_components) */
+$handler->display->display_options['filters']['field_er_components_target_id']['id'] = 'field_er_components_target_id';
+$handler->display->display_options['filters']['field_er_components_target_id']['table'] = 'field_data_field_er_components';
+$handler->display->display_options['filters']['field_er_components_target_id']['field'] = 'field_er_components_target_id';
+$handler->display->display_options['filters']['field_er_components_target_id']['relationship'] = 'field_er_user_entity_reference_target_id';
+$handler->display->display_options['filters']['field_er_components_target_id']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_components_target_id']['expose']['operator_id'] = 'field_er_components_target_id_op';
+$handler->display->display_options['filters']['field_er_components_target_id']['expose']['label'] = 'Project Component (field_er_components)';
+$handler->display->display_options['filters']['field_er_components_target_id']['expose']['operator'] = 'field_er_components_target_id_op';
+$handler->display->display_options['filters']['field_er_components_target_id']['expose']['identifier'] = 'field_er_components_target_id';
+$handler->display->display_options['filters']['field_er_components_target_id']['is_grouped'] = TRUE;
+$handler->display->display_options['filters']['field_er_components_target_id']['group_info']['label'] = 'Project Team';
+$handler->display->display_options['filters']['field_er_components_target_id']['group_info']['identifier'] = 'field_er_components_target_id';
+$handler->display->display_options['filters']['field_er_components_target_id']['group_info']['group_items'] = array(
+  1 => array(
+    'title' => 'Climate',
+    'operator' => '=',
+    'value' => array(
+      'value' => '4',
+      'min' => '',
+      'max' => '',
+    ),
+  ),
+  2 => array(
+    'title' => 'Community',
+    'operator' => '=',
+    'value' => array(
+      'value' => '2',
+      'min' => '',
+      'max' => '',
+    ),
+  ),
+  3 => array(
+    'title' => 'Cyberinfrastructure',
+    'operator' => '=',
+    'value' => array(
+      'value' => '5',
+      'min' => '',
+      'max' => '',
+    ),
+  ),
+  4 => array(
+    'title' => 'Education & Outreach',
+    'operator' => '=',
+    'value' => array(
+      'value' => '3',
+      'min' => '',
+      'max' => '',
+    ),
+  ),
+  5 => array(
+    'title' => 'Plant',
+    'operator' => '=',
+    'value' => array(
+      'value' => '1',
+      'min' => '',
+      'max' => '',
+    ),
+  ),
+);
 $handler->display->display_options['path'] = 'other-research-products';
 
 /* Display: Attachment */
@@ -155,7 +315,7 @@ $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Field: Content: EPSCoR Presenter(s) */
+/* Field: Content: EPSCoR Researchers(s) */
 $handler->display->display_options['fields']['field_er_user_entity_reference']['id'] = 'field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['table'] = 'field_data_field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['field'] = 'field_er_user_entity_reference';
@@ -172,7 +332,7 @@ $handler->display->display_options['fields']['field_er_collab_names']['field'] =
 $handler->display->display_options['fields']['field_er_collab_names']['label'] = 'Product Creators(s)';
 $handler->display->display_options['fields']['field_er_collab_names']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_er_collab_names']['delta_offset'] = '0';
-/* Field: Content: What level of funding support did EPSCoR provide for this publication? */
+/* Field: Content: EPSCoR Support */
 $handler->display->display_options['fields']['field_er_rii_support']['id'] = 'field_er_rii_support';
 $handler->display->display_options['fields']['field_er_rii_support']['table'] = 'field_data_field_er_rii_support';
 $handler->display->display_options['fields']['field_er_rii_support']['field'] = 'field_er_rii_support';

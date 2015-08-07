@@ -103,7 +103,7 @@ $data = array(
           ),
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 0,
+              'status' => 1,
             ),
           ),
         ),
@@ -514,11 +514,11 @@ $data = array(
         ),
       ),
       'bundles' => array(
-        'user' => array(
-          0 => 'user',
-        ),
         'node' => array(
           0 => 'er_collaborators',
+        ),
+        'user' => array(
+          0 => 'user',
         ),
       ),
     ),
@@ -676,11 +676,11 @@ $data = array(
         ),
       ),
       'bundles' => array(
-        'user' => array(
-          0 => 'user',
-        ),
         'node' => array(
           0 => 'er_collaborators',
+        ),
+        'user' => array(
+          0 => 'user',
         ),
       ),
     ),
@@ -853,11 +853,11 @@ $data = array(
         ),
       ),
       'bundles' => array(
-        'user' => array(
-          0 => 'user',
-        ),
         'node' => array(
           0 => 'er_collaborators',
+        ),
+        'user' => array(
+          0 => 'user',
         ),
       ),
     ),
@@ -866,11 +866,12 @@ $data = array(
       'entity_types' => array(),
       'settings' => array(
         'target_type' => 'user',
-        'handler' => 'realname',
+        'handler' => 'views',
         'handler_settings' => array(
-          'target_bundles' => array(),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'view_name' => 'non_admin_users',
+            'display_name' => 'entityreference_1',
+            'args' => array(),
           ),
           'behaviors' => array(
             'views-select-list' => array(
@@ -900,10 +901,10 @@ $data = array(
         ),
       ),
       'foreign keys' => array(
-        'node' => array(
-          'table' => 'node',
+        'users' => array(
+          'table' => 'users',
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'uid',
           ),
         ),
       ),
@@ -933,6 +934,7 @@ $data = array(
       'bundles' => array(
         'node' => array(
           0 => 'er_collaborators',
+          1 => 'er_event',
         ),
       ),
     ),
@@ -1017,6 +1019,7 @@ $data = array(
         'description' => '',
         'default_value' => NULL,
         'default_value_function' => '',
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_collab_inst_ref',
         'entity_type' => 'node',
         'bundle' => 'er_collaborators',
@@ -1348,6 +1351,8 @@ $data = array(
           'rel_remove' => 'default',
           'enable_tokens' => 1,
           'user_register_form' => FALSE,
+          'title_label_use_field_label' => FALSE,
+          'absolute_url' => 1,
         ),
         'display' => array(
           'default' => array(
@@ -1458,7 +1463,6 @@ $data = array(
               'er_presentation' => 0,
               'er_proposal' => 0,
               'er_publication' => 0,
-              'simpletest_example' => 0,
             ),
             'author' => array(
               'view' => 0,
@@ -1500,6 +1504,7 @@ $data = array(
         'description' => 'Look-up the name of anyone with an account in the system. If the name you wish to enter does not show up, please manually fill out the form below.',
         'default_value' => NULL,
         'default_value_function' => '',
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_user_lookup',
         'entity_type' => 'node',
         'bundle' => 'er_collaborators',
@@ -1509,7 +1514,7 @@ $data = array(
   ),
   'fieldgroups' => array(
     'group_er_collab_manual|node|er_collaborators|form' => (object) array(
-      'id' => '26',
+      'id' => '2',
       'identifier' => 'group_er_collab_manual|node|er_collaborators|form',
       'group_name' => 'group_er_collab_manual',
       'entity_type' => 'node',
@@ -1519,7 +1524,6 @@ $data = array(
       'table' => 'field_group',
       'type' => 'Normal',
       'export_type' => 1,
-      'disabled' => FALSE,
       'label' => 'Manual Entry',
       'weight' => '3',
       'children' => array(
@@ -1547,7 +1551,7 @@ $data = array(
       ),
     ),
     'group_er_collab_lookup|node|er_collaborators|form' => (object) array(
-      'id' => '28',
+      'id' => '3',
       'identifier' => 'group_er_collab_lookup|node|er_collaborators|form',
       'group_name' => 'group_er_collab_lookup',
       'entity_type' => 'node',
@@ -1557,7 +1561,6 @@ $data = array(
       'table' => 'field_group',
       'type' => 'Normal',
       'export_type' => 1,
-      'disabled' => FALSE,
       'label' => 'User Lookup',
       'weight' => '2',
       'children' => array(
@@ -1575,7 +1578,7 @@ $data = array(
       ),
     ),
     'group_quick_add_inst|node|er_collaborators|form' => (object) array(
-      'id' => '30',
+      'id' => '4',
       'identifier' => 'group_quick_add_inst|node|er_collaborators|form',
       'group_name' => 'group_quick_add_inst',
       'entity_type' => 'node',
@@ -1585,7 +1588,6 @@ $data = array(
       'table' => 'field_group',
       'type' => 'Normal',
       'export_type' => 1,
-      'disabled' => FALSE,
       'label' => 'Add new Institution',
       'weight' => '14',
       'children' => array(),

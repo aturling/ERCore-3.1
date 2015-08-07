@@ -97,12 +97,12 @@ $data = array(
         ),
       ),
       'bundles' => array(
+        'node' => array(
+          0 => 'er_patent',
+          1 => 'er_other_product',
+        ),
         'user' => array(
           0 => 'user',
-        ),
-        'node' => array(
-          0 => 'er_other_product',
-          1 => 'er_patent',
         ),
       ),
     ),
@@ -564,10 +564,10 @@ $data = array(
         ),
       ),
       'foreign keys' => array(
-        'node' => array(
-          'table' => 'node',
+        'users' => array(
+          'table' => 'users',
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'uid',
           ),
         ),
       ),
@@ -671,11 +671,12 @@ $data = array(
       'entity_types' => array(),
       'settings' => array(
         'target_type' => 'user',
-        'handler' => 'realname',
+        'handler' => 'views',
         'handler_settings' => array(
-          'target_bundles' => array(),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'view_name' => 'non_admin_users',
+            'display_name' => 'entityreference_1',
+            'args' => array(),
           ),
           'behaviors' => array(
             'views-select-list' => array(
@@ -706,10 +707,10 @@ $data = array(
         ),
       ),
       'foreign keys' => array(
-        'node' => array(
-          'table' => 'node',
+        'users' => array(
+          'table' => 'users',
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'uid',
           ),
         ),
       ),
@@ -738,15 +739,14 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_proposal',
+          0 => 'er_award',
           1 => 'er_publication',
-          2 => 'er_other_product',
-          3 => 'er_news',
-          4 => 'er_award',
-          5 => 'er_event',
-          6 => 'er_patent',
-          7 => 'er_presentation',
-          8 => 'er_collaboration',
+          2 => 'er_news',
+          3 => 'er_patent',
+          4 => 'er_other_product',
+          5 => 'er_proposal',
+          6 => 'er_presentation',
+          7 => 'er_event',
         ),
       ),
     ),
@@ -1041,6 +1041,8 @@ $data = array(
             'title' => '',
           ),
           'user_register_form' => FALSE,
+          'title_label_use_field_label' => FALSE,
+          'absolute_url' => 1,
         ),
         'required' => 0,
         'field_name' => 'field_er_link',
@@ -1098,7 +1100,8 @@ $data = array(
           ),
         ),
         'required' => 0,
-        'description' => '',
+        'description' => 'Patent award date. Delete contents of "Provisional date" field above once patent has been awarded (patent no longer pending).',
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_patent_award_date',
         'entity_type' => 'node',
         'bundle' => 'er_patent',
@@ -1124,6 +1127,7 @@ $data = array(
             'label_position' => 'above',
             'text_parts' => array(),
             'repeat_collapsed' => 0,
+            'display_all_day' => 0,
           ),
         ),
         'display' => array(
@@ -1388,7 +1392,8 @@ $data = array(
           ),
         ),
         'required' => 0,
-        'description' => '',
+        'description' => 'Patent pending date. Leave this field blank if the patent has been awarded.',
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_provisional_date',
         'entity_type' => 'node',
         'bundle' => 'er_patent',

@@ -60,7 +60,7 @@ $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = '1';
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: User: Do you participate in EPSCoR research more than 160 hours per year? (field_er_160hours) */
+/* Filter criterion: User: Do you participate in EPSCoR activities more than 160 hours per year? (field_er_160hours) */
 $handler->display->display_options['filters']['field_er_160hours_value']['id'] = 'field_er_160hours_value';
 $handler->display->display_options['filters']['field_er_160hours_value']['table'] = 'field_data_field_er_160hours';
 $handler->display->display_options['filters']['field_er_160hours_value']['field'] = 'field_er_160hours_value';
@@ -70,6 +70,9 @@ $handler->display->display_options['filters']['field_er_160hours_value']['value'
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['defaults']['style_plugin'] = FALSE;
 $handler->display->display_options['style_plugin'] = 'table';
 $handler->display->display_options['style_options']['columns'] = array(
@@ -122,7 +125,8 @@ $handler->display->display_options['menu']['context_only_inline'] = 0;
 
 /* Display: Attachment */
 $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
-$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['defaults']['style_plugin'] = FALSE;
 $handler->display->display_options['style_plugin'] = 'table';
 $handler->display->display_options['style_options']['columns'] = array(
@@ -173,7 +177,7 @@ $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = '1';
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: User: Do you participate in EPSCoR research more than 160 hours per year? (field_er_160hours) */
+/* Filter criterion: User: Do you participate in EPSCoR activities more than 160 hours per year? (field_er_160hours) */
 $handler->display->display_options['filters']['field_er_160hours_value']['id'] = 'field_er_160hours_value';
 $handler->display->display_options['filters']['field_er_160hours_value']['table'] = 'field_data_field_er_160hours';
 $handler->display->display_options['filters']['field_er_160hours_value']['field'] = 'field_er_160hours_value';
@@ -186,3 +190,4 @@ $handler->display->display_options['displays'] = array(
   'default' => 0,
 );
 $handler->display->display_options['attachment_position'] = 'after';
+

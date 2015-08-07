@@ -10462,7 +10462,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
   ),
   'fieldgroups' => array(
     'group_er_tot|node|er_engagement|form' => (object) array(
-      'id' => '1',
+      'id' => '5',
       'identifier' => 'group_er_tot|node|er_engagement|form',
       'group_name' => 'group_er_tot',
       'entity_type' => 'node',
@@ -10493,7 +10493,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_oth|node|er_engagement|form' => (object) array(
-      'id' => '2',
+      'id' => '6',
       'identifier' => 'group_er_oth|node|er_engagement|form',
       'group_name' => 'group_er_oth',
       'entity_type' => 'node',
@@ -10524,7 +10524,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_ari|node|er_engagement|form' => (object) array(
-      'id' => '3',
+      'id' => '7',
       'identifier' => 'group_er_ari|node|er_engagement|form',
       'group_name' => 'group_er_ari',
       'entity_type' => 'node',
@@ -10560,7 +10560,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_pui|node|er_engagement|form' => (object) array(
-      'id' => '4',
+      'id' => '8',
       'identifier' => 'group_er_pui|node|er_engagement|form',
       'group_name' => 'group_er_pui',
       'entity_type' => 'node',
@@ -10596,7 +10596,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_msi|node|er_engagement|form' => (object) array(
-      'id' => '5',
+      'id' => '9',
       'identifier' => 'group_er_msi|node|er_engagement|form',
       'group_name' => 'group_er_msi',
       'entity_type' => 'node',
@@ -10632,7 +10632,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_k12i|node|er_engagement|form' => (object) array(
-      'id' => '6',
+      'id' => '10',
       'identifier' => 'group_er_k12i|node|er_engagement|form',
       'group_name' => 'group_er_k12i',
       'entity_type' => 'node',
@@ -10673,7 +10673,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_ee_manual_option|node|er_engagement|form' => (object) array(
-      'id' => '31',
+      'id' => '11',
       'identifier' => 'group_er_ee_manual_option|node|er_engagement|form',
       'group_name' => 'group_er_ee_manual_option',
       'entity_type' => 'node',
@@ -10706,7 +10706,7 @@ $file_url = file_create_url(ER_MODULE_DIR."/static/files/External_Engagement_Rep
       ),
     ),
     'group_er_ee_upload_option|node|er_engagement|form' => (object) array(
-      'id' => '32',
+      'id' => '12',
       'identifier' => 'group_er_ee_upload_option|node|er_engagement|form',
       'group_name' => 'group_er_ee_upload_option',
       'entity_type' => 'node',

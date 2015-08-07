@@ -1,5 +1,4 @@
 <?php
-
 $data = array(
   'bundles' => array(
     'er_other_product' => (object) array(
@@ -91,7 +90,6 @@ $data = array(
       'bundles' => array(
         'node' => array(
           0 => 'er_other_product',
-          1 => 'er_collaborators',
         ),
       ),
     ),
@@ -172,12 +170,12 @@ $data = array(
         ),
       ),
       'bundles' => array(
+        'node' => array(
+          0 => 'er_patent',
+          1 => 'er_other_product',
+        ),
         'user' => array(
           0 => 'user',
-        ),
-        'node' => array(
-          0 => 'er_other_product',
-          1 => 'er_patent',
         ),
       ),
     ),
@@ -449,11 +447,12 @@ $data = array(
       'entity_types' => array(),
       'settings' => array(
         'target_type' => 'user',
-        'handler' => 'realname',
+        'handler' => 'views',
         'handler_settings' => array(
-          'target_bundles' => array(),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'view_name' => 'non_admin_users',
+            'display_name' => 'entityreference_1',
+            'args' => array(),
           ),
           'behaviors' => array(
             'views-select-list' => array(
@@ -484,10 +483,10 @@ $data = array(
         ),
       ),
       'foreign keys' => array(
-        'node' => array(
-          'table' => 'node',
+        'users' => array(
+          'table' => 'users',
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'uid',
           ),
         ),
       ),
@@ -516,15 +515,14 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_proposal',
+          0 => 'er_award',
           1 => 'er_publication',
-          2 => 'er_other_product',
-          3 => 'er_news',
-          4 => 'er_award',
-          5 => 'er_event',
-          6 => 'er_patent',
-          7 => 'er_presentation',
-          8 => 'er_collaboration',
+          2 => 'er_news',
+          3 => 'er_patent',
+          4 => 'er_other_product',
+          5 => 'er_proposal',
+          6 => 'er_presentation',
+          7 => 'er_event',
         ),
       ),
     ),
@@ -831,6 +829,7 @@ $data = array(
             'increment' => '1',
             'label_position' => 'above',
             'text_parts' => array(),
+            'display_all_day' => 0,
             'repeat_collapsed' => 0,
           ),
         ),
@@ -955,7 +954,8 @@ $data = array(
           'default_value_code2' => '',
           'user_register_form' => FALSE,
         ),
-        'required' => 1,
+        'required' => 0,
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_other_product_date',
         'entity_type' => 'node',
         'bundle' => 'er_other_product',

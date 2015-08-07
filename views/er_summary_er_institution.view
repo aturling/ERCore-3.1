@@ -68,13 +68,14 @@ $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['pager']['options']['id'] = '0';
 $handler->display->display_options['defaults']['style_plugin'] = FALSE;
 $handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['default_row_class'] = FALSE;
 $handler->display->display_options['style_options']['columns'] = array(
   'title' => 'title',
   'field_er_inst_type' => 'field_er_inst_type',
   'field_er_inst_category' => 'field_er_inst_category',
   'field_er_inst_participating' => 'field_er_inst_participating',
 );
-$handler->display->display_options['style_options']['default'] = 'field_er_inst_type';
+$handler->display->display_options['style_options']['default'] = '-1';
 $handler->display->display_options['style_options']['info'] = array(
   'title' => array(
     'sortable' => 1,
@@ -99,7 +100,7 @@ $handler->display->display_options['style_options']['info'] = array(
   ),
   'field_er_inst_participating' => array(
     'sortable' => 1,
-    'default_sort_order' => 'desc',
+    'default_sort_order' => 'asc',
     'align' => '',
     'separator' => '',
     'empty_column' => 0,

@@ -77,7 +77,7 @@ $handler->display->display_options['fields']['title']['table'] = 'node';
 $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-/* Field: Content: EPSCoR Presenter(s) */
+/* Field: Content: EPSCoR Researchers(s) */
 $handler->display->display_options['fields']['field_er_user_entity_reference']['id'] = 'field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['table'] = 'field_data_field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['field'] = 'field_er_user_entity_reference';
@@ -176,6 +176,19 @@ $handler->display->display_options['filters']['field_er_type_of_presentation_val
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = '30';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
+$handler->display->display_options['defaults']['header'] = FALSE;
+/* Header: Global: Unfiltered text */
+$handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+$handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+$handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+$handler->display->display_options['header']['area_text_custom']['label'] = 'sorting/filtering instructions';
+$handler->display->display_options['header']['area_text_custom']['content'] = 'Use the fields below to filter results by date range or presentation type and/or change how the results are sorted.<br>';
 $handler->display->display_options['defaults']['sorts'] = FALSE;
 /* Sort criterion: Content: Upload File (field_er_upload_file:display) */
 $handler->display->display_options['sorts']['field_er_upload_file_display']['id'] = 'field_er_upload_file_display';
@@ -247,7 +260,7 @@ $handler->display->display_options['fields']['nid']['table'] = 'node';
 $handler->display->display_options['fields']['nid']['field'] = 'nid';
 $handler->display->display_options['fields']['nid']['label'] = 'Node ID';
 $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-/* Field: Content: EPSCoR Presenter(s) */
+/* Field: Content: EPSCoR Researchers(s) */
 $handler->display->display_options['fields']['field_er_user_entity_reference']['id'] = 'field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['table'] = 'field_data_field_er_user_entity_reference';
 $handler->display->display_options['fields']['field_er_user_entity_reference']['field'] = 'field_er_user_entity_reference';
@@ -273,7 +286,7 @@ $handler->display->display_options['fields']['field_er_other_authors']['id'] = '
 $handler->display->display_options['fields']['field_er_other_authors']['table'] = 'field_data_field_er_other_authors';
 $handler->display->display_options['fields']['field_er_other_authors']['field'] = 'field_er_other_authors';
 $handler->display->display_options['fields']['field_er_other_authors']['element_label_colon'] = FALSE;
-/* Field: Content: Internet Link */
+/* Field: Content: Link */
 $handler->display->display_options['fields']['field_er_link']['id'] = 'field_er_link';
 $handler->display->display_options['fields']['field_er_link']['table'] = 'field_data_field_er_link';
 $handler->display->display_options['fields']['field_er_link']['field'] = 'field_er_link';

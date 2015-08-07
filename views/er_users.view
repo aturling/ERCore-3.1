@@ -1,5 +1,4 @@
 <?php
-
 $view = new view();
 $view->name = 'er_users';
 $view->description = '';
@@ -124,6 +123,17 @@ $handler->display->display_options['filters']['status']['expose']['operator'] = 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
 $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+$handler->display->display_options['defaults']['access'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  10000 => '10000',
+  3 => '3',
+  40001 => '40001',
+  20000 => '20000',
+  40002 => '40002',
+  40003 => '40003',
+  30000 => '30000',
+);
 $handler->display->display_options['defaults']['pager'] = FALSE;
 $handler->display->display_options['pager']['type'] = 'none';
 $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -153,7 +163,7 @@ $handler->display->display_options['fields']['picture']['table'] = 'users';
 $handler->display->display_options['fields']['picture']['field'] = 'picture';
 $handler->display->display_options['fields']['picture']['label'] = '';
 $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['picture']['empty'] = '<img src="http://nmepscor.org/sites/default/files/pictures/defaultperson.jpg">';
+$handler->display->display_options['fields']['picture']['empty'] = '<img src="https://epscorreporting.missouri.edu/sites/all/modules/er/static/img/defaultperson.jpg">';
 $handler->display->display_options['fields']['picture']['hide_alter_empty'] = FALSE;
 $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
 /* Field: User: First Name */
@@ -210,6 +220,34 @@ $handler->display->display_options['fields']['view_user']['field'] = 'view_user'
 $handler->display->display_options['fields']['view_user']['label'] = '';
 $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['view_user']['text'] = 'more';
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+/* Sort criterion: User: Last Name (field_er_lname) */
+$handler->display->display_options['sorts']['field_er_lname_value']['id'] = 'field_er_lname_value';
+$handler->display->display_options['sorts']['field_er_lname_value']['table'] = 'field_data_field_er_lname';
+$handler->display->display_options['sorts']['field_er_lname_value']['field'] = 'field_er_lname_value';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filter criterion: User: Active */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'users';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filter criterion: Removing site admin */
+$handler->display->display_options['filters']['uid_raw']['id'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw']['table'] = 'users';
+$handler->display->display_options['filters']['uid_raw']['field'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw']['ui_name'] = 'Removing site admin';
+$handler->display->display_options['filters']['uid_raw']['operator'] = '!=';
+$handler->display->display_options['filters']['uid_raw']['value']['value'] = '1';
+/* Filter criterion: Removing other site admin */
+$handler->display->display_options['filters']['uid_raw_1']['id'] = 'uid_raw_1';
+$handler->display->display_options['filters']['uid_raw_1']['table'] = 'users';
+$handler->display->display_options['filters']['uid_raw_1']['field'] = 'uid_raw';
+$handler->display->display_options['filters']['uid_raw_1']['ui_name'] = 'Removing other site admin';
+$handler->display->display_options['filters']['uid_raw_1']['operator'] = '!=';
+$handler->display->display_options['filters']['uid_raw_1']['value']['value'] = '32';
 $handler->display->display_options['path'] = 'user-involvement';
 $handler->display->display_options['menu']['type'] = 'normal';
 $handler->display->display_options['menu']['title'] = 'Participants';
@@ -330,6 +368,10 @@ $handler->display->display_options['fields']['name']['table'] = 'users';
 $handler->display->display_options['fields']['name']['field'] = 'name';
 $handler->display->display_options['fields']['name']['label'] = 'System User Name';
 $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+/* Field: User: E-mail */
+$handler->display->display_options['fields']['mail']['id'] = 'mail';
+$handler->display->display_options['fields']['mail']['table'] = 'users';
+$handler->display->display_options['fields']['mail']['field'] = 'mail';
 /* Field: User: Description of Data */
 $handler->display->display_options['fields']['field_er_type_of_data']['id'] = 'field_er_type_of_data';
 $handler->display->display_options['fields']['field_er_type_of_data']['table'] = 'field_data_field_er_type_of_data';
@@ -365,7 +407,7 @@ $handler->display->display_options['filters']['field_er_collecting_data_bool_val
 $handler->display->display_options['filters']['field_er_collecting_data_bool_value']['value'] = array(
   1 => '1',
 );
-/* Filter criterion: User: Have you been put in touch with the Data Manager? (field_er_has_this_user) */
+/* Filter criterion: User: Have you been put in touch with the CI Team? (field_er_has_this_user) */
 $handler->display->display_options['filters']['field_er_has_this_user_value']['id'] = 'field_er_has_this_user_value';
 $handler->display->display_options['filters']['field_er_has_this_user_value']['table'] = 'field_data_field_er_has_this_user';
 $handler->display->display_options['filters']['field_er_has_this_user_value']['field'] = 'field_er_has_this_user_value';
@@ -561,6 +603,10 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
 $handler->display->display_options['fields']['name']['exclude'] = TRUE;
 $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+/* Field: User: E-mail */
+$handler->display->display_options['fields']['mail']['id'] = 'mail';
+$handler->display->display_options['fields']['mail']['table'] = 'users';
+$handler->display->display_options['fields']['mail']['field'] = 'mail';
 /* Field: User: Description of Data */
 $handler->display->display_options['fields']['field_er_type_of_data']['id'] = 'field_er_type_of_data';
 $handler->display->display_options['fields']['field_er_type_of_data']['table'] = 'field_data_field_er_type_of_data';
@@ -596,7 +642,7 @@ $handler->display->display_options['filters']['field_er_collecting_data_bool_val
 $handler->display->display_options['filters']['field_er_collecting_data_bool_value']['value'] = array(
   1 => '1',
 );
-/* Filter criterion: User: Have you been put in touch with the Data Manager? (field_er_has_this_user) */
+/* Filter criterion: User: Have you been put in touch with the CI Team? (field_er_has_this_user) */
 $handler->display->display_options['filters']['field_er_has_this_user_value']['id'] = 'field_er_has_this_user_value';
 $handler->display->display_options['filters']['field_er_has_this_user_value']['table'] = 'field_data_field_er_has_this_user';
 $handler->display->display_options['filters']['field_er_has_this_user_value']['field'] = 'field_er_has_this_user_value';

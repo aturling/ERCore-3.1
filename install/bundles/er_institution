@@ -94,13 +94,13 @@ $data = array(
         'node' => array(
           0 => 'page',
           1 => 'article',
-          2 => 'er_proposal',
-          3 => 'er_collaboration',
-          4 => 'er_award',
-          5 => 'er_publication',
-          6 => 'er_institution',
-          7 => 'er_event',
-          8 => 'er_presentation',
+          2 => 'er_collaboration',
+          3 => 'er_award',
+          4 => 'er_publication',
+          5 => 'er_institution',
+          6 => 'er_proposal',
+          7 => 'er_presentation',
+          8 => 'er_event',
         ),
       ),
     ),
@@ -178,8 +178,8 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_collaborators',
-          1 => 'er_institution',
+          0 => 'er_institution',
+          1 => 'er_collaborators',
         ),
         'user' => array(
           0 => 'user',
@@ -328,8 +328,8 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_collaborators',
-          1 => 'er_institution',
+          0 => 'er_institution',
+          1 => 'er_collaborators',
         ),
         'user' => array(
           0 => 'user',
@@ -420,8 +420,8 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_collaborators',
-          1 => 'er_institution',
+          0 => 'er_institution',
+          1 => 'er_collaborators',
         ),
         'user' => array(
           0 => 'user',
@@ -799,6 +799,8 @@ $data = array(
           'rel_remove' => 'default',
           'enable_tokens' => 1,
           'user_register_form' => FALSE,
+          'title_label_use_field_label' => FALSE,
+          'absolute_url' => 1,
         ),
         'display' => array(
           'default' => array(

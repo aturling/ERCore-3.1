@@ -151,6 +151,61 @@ $handler->display->display_options['filters']['field_er_participating_date_value
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['defaults']['access'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  10000 => '10000',
+  3 => '3',
+  2 => '2',
+  40001 => '40001',
+  20000 => '20000',
+  30000 => '30000',
+);
+$handler->display->display_options['defaults']['pager'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['columns'] = array(
+  'uid' => 'uid',
+  'field_er_realname' => 'field_er_realname',
+  'field_er_most_sen_proj_role' => 'field_er_most_sen_proj_role',
+  'field_er_participating_date' => 'field_er_participating_date',
+);
+$handler->display->display_options['style_options']['default'] = '-1';
+$handler->display->display_options['style_options']['info'] = array(
+  'uid' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_er_realname' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_er_most_sen_proj_role' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_er_participating_date' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+);
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['defaults']['row_options'] = FALSE;
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Field: User: Uid */
 $handler->display->display_options['fields']['uid']['id'] = 'uid';
@@ -164,7 +219,6 @@ $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
 $handler->display->display_options['fields']['field_er_realname']['id'] = 'field_er_realname';
 $handler->display->display_options['fields']['field_er_realname']['table'] = 'field_data_field_er_realname';
 $handler->display->display_options['fields']['field_er_realname']['field'] = 'field_er_realname';
-$handler->display->display_options['fields']['field_er_realname']['label'] = '';
 $handler->display->display_options['fields']['field_er_realname']['alter']['make_link'] = TRUE;
 $handler->display->display_options['fields']['field_er_realname']['alter']['path'] = 'user/[uid]';
 $handler->display->display_options['fields']['field_er_realname']['element_label_colon'] = FALSE;
@@ -189,6 +243,95 @@ $handler->display->display_options['fields']['field_er_participating_date']['set
   'show_repeat_rule' => 'show',
 );
 $handler->display->display_options['fields']['field_er_participating_date']['delta_offset'] = '0';
+$handler->display->display_options['defaults']['sorts'] = FALSE;
+/* Sort criterion: User: Last Name (field_er_lname) */
+$handler->display->display_options['sorts']['field_er_lname_value']['id'] = 'field_er_lname_value';
+$handler->display->display_options['sorts']['field_er_lname_value']['table'] = 'field_data_field_er_lname';
+$handler->display->display_options['sorts']['field_er_lname_value']['field'] = 'field_er_lname_value';
+$handler->display->display_options['sorts']['field_er_lname_value']['exposed'] = TRUE;
+$handler->display->display_options['sorts']['field_er_lname_value']['expose']['label'] = 'Name';
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filter criterion: User: Active */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'users';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+/* Filter criterion: Content: Participating (field_er_inst_participating) */
+$handler->display->display_options['filters']['field_er_inst_participating_value']['id'] = 'field_er_inst_participating_value';
+$handler->display->display_options['filters']['field_er_inst_participating_value']['table'] = 'field_data_field_er_inst_participating';
+$handler->display->display_options['filters']['field_er_inst_participating_value']['field'] = 'field_er_inst_participating_value';
+$handler->display->display_options['filters']['field_er_inst_participating_value']['relationship'] = 'field_er_inst_ref_target_id';
+$handler->display->display_options['filters']['field_er_inst_participating_value']['value'] = array(
+  1 => '1',
+);
+$handler->display->display_options['filters']['field_er_inst_participating_value']['group'] = 1;
+/* Filter criterion: User: Participating Date(s) - end date (field_er_participating_date:value2) */
+$handler->display->display_options['filters']['field_er_participating_date_value2']['id'] = 'field_er_participating_date_value2';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['table'] = 'field_data_field_er_participating_date';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['field'] = 'field_er_participating_date_value2';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['operator'] = '>=';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['group'] = 1;
+$handler->display->display_options['filters']['field_er_participating_date_value2']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_participating_date_value2']['expose']['operator_id'] = 'field_er_participating_date_value2_op';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['expose']['label'] = 'Start date';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['expose']['operator'] = 'field_er_participating_date_value2_op';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['expose']['identifier'] = 'start_date';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  10000 => 0,
+  20000 => 0,
+  30000 => 0,
+  40000 => 0,
+);
+$handler->display->display_options['filters']['field_er_participating_date_value2']['form_type'] = 'date_popup';
+$handler->display->display_options['filters']['field_er_participating_date_value2']['year_range'] = '-8:+3';
+/* Filter criterion: User: Participating Date(s) -  start date (field_er_participating_date) */
+$handler->display->display_options['filters']['field_er_participating_date_value']['id'] = 'field_er_participating_date_value';
+$handler->display->display_options['filters']['field_er_participating_date_value']['table'] = 'field_data_field_er_participating_date';
+$handler->display->display_options['filters']['field_er_participating_date_value']['field'] = 'field_er_participating_date_value';
+$handler->display->display_options['filters']['field_er_participating_date_value']['operator'] = '<=';
+$handler->display->display_options['filters']['field_er_participating_date_value']['group'] = 1;
+$handler->display->display_options['filters']['field_er_participating_date_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_participating_date_value']['expose']['operator_id'] = 'field_er_participating_date_value_op';
+$handler->display->display_options['filters']['field_er_participating_date_value']['expose']['label'] = 'End date';
+$handler->display->display_options['filters']['field_er_participating_date_value']['expose']['operator'] = 'field_er_participating_date_value_op';
+$handler->display->display_options['filters']['field_er_participating_date_value']['expose']['identifier'] = 'end_date';
+$handler->display->display_options['filters']['field_er_participating_date_value']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  10000 => 0,
+  20000 => 0,
+  30000 => 0,
+  40000 => 0,
+);
+$handler->display->display_options['filters']['field_er_participating_date_value']['form_type'] = 'date_popup';
+$handler->display->display_options['filters']['field_er_participating_date_value']['year_range'] = '-8:+3';
+/* Filter criterion: User: Most Senior Project Role (field_er_most_sen_proj_role) */
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['id'] = 'field_er_most_sen_proj_role_value';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['table'] = 'field_data_field_er_most_sen_proj_role';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['field'] = 'field_er_most_sen_proj_role_value';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['expose']['operator_id'] = 'field_er_most_sen_proj_role_value_op';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['expose']['label'] = 'Most Senior Project Role';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['expose']['operator'] = 'field_er_most_sen_proj_role_value_op';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['expose']['identifier'] = 'field_er_most_sen_proj_role_value';
+$handler->display->display_options['filters']['field_er_most_sen_proj_role_value']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  10000 => 0,
+  40002 => 0,
+  40003 => 0,
+  40001 => 0,
+  20000 => 0,
+  30000 => 0,
+  40000 => 0,
+);
 $handler->display->display_options['path'] = 'participants';
 
 /* Display: Attachment */

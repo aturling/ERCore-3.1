@@ -94,13 +94,13 @@ $data = array(
         'node' => array(
           0 => 'page',
           1 => 'article',
-          2 => 'er_event',
-          3 => 'er_presentation',
-          4 => 'er_award',
-          5 => 'er_collaboration',
-          6 => 'er_institution',
-          7 => 'er_publication',
-          8 => 'er_proposal',
+          2 => 'er_collaboration',
+          3 => 'er_award',
+          4 => 'er_publication',
+          5 => 'er_institution',
+          6 => 'er_proposal',
+          7 => 'er_presentation',
+          8 => 'er_event',
         ),
       ),
     ),
@@ -255,9 +255,9 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_presentation',
+          0 => 'er_publication',
           1 => 'er_patent',
-          2 => 'er_publication',
+          2 => 'er_presentation',
         ),
       ),
     ),
@@ -616,8 +616,8 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_presentation',
-          1 => 'er_publication',
+          0 => 'er_publication',
+          1 => 'er_presentation',
         ),
       ),
     ),
@@ -626,11 +626,12 @@ $data = array(
       'entity_types' => array(),
       'settings' => array(
         'target_type' => 'user',
-        'handler' => 'realname',
+        'handler' => 'views',
         'handler_settings' => array(
-          'target_bundles' => array(),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'view_name' => 'non_admin_users',
+            'display_name' => 'entityreference_1',
+            'args' => array(),
           ),
           'behaviors' => array(
             'views-select-list' => array(
@@ -693,14 +694,14 @@ $data = array(
       ),
       'bundles' => array(
         'node' => array(
-          0 => 'er_event',
-          1 => 'er_presentation',
+          0 => 'er_award',
+          1 => 'er_publication',
           2 => 'er_news',
-          3 => 'er_award',
-          4 => 'er_patent',
-          5 => 'er_other_product',
-          6 => 'er_publication',
-          7 => 'er_proposal',
+          3 => 'er_patent',
+          4 => 'er_other_product',
+          5 => 'er_proposal',
+          6 => 'er_presentation',
+          7 => 'er_event',
         ),
       ),
     ),
@@ -770,11 +771,11 @@ $data = array(
           'teaser' => array(
             'label' => 'hidden',
             'type' => 'text_summary_or_trimmed',
-            'weight' => '5',
             'settings' => array(
               'trim_length' => 600,
             ),
             'module' => 'text',
+            'weight' => -7,
           ),
         ),
         'required' => 0,
@@ -806,7 +807,7 @@ $data = array(
           'teaser' => array(
             'label' => 'inline',
             'type' => 'text_default',
-            'weight' => '3',
+            'weight' => '-10',
             'settings' => array(),
             'module' => 'text',
           ),
@@ -889,7 +890,7 @@ $data = array(
           'teaser' => array(
             'label' => 'inline',
             'type' => 'link_default',
-            'weight' => '4',
+            'weight' => '-9',
             'settings' => array(),
             'module' => 'link',
           ),
@@ -992,7 +993,7 @@ $data = array(
           'teaser' => array(
             'label' => 'above',
             'type' => 'text_default',
-            'weight' => '1',
+            'weight' => '-12',
             'settings' => array(),
             'module' => 'text',
           ),
@@ -1082,10 +1083,10 @@ $data = array(
             'module' => 'text',
           ),
           'teaser' => array(
-            'label' => 'above',
             'type' => 'hidden',
-            'weight' => '9',
+            'label' => 'above',
             'settings' => array(),
+            'weight' => 0,
           ),
         ),
         'required' => 0,
@@ -1123,7 +1124,7 @@ $data = array(
           'teaser' => array(
             'label' => 'above',
             'type' => 'date_default',
-            'weight' => '2',
+            'weight' => '-11',
             'settings' => array(
               'show_repeat_rule' => 'show',
               'multiple_number' => '',
@@ -1269,15 +1270,16 @@ $data = array(
             'module' => 'list',
           ),
           'teaser' => array(
-            'label' => 'above',
             'type' => 'hidden',
-            'weight' => '8',
+            'label' => 'above',
             'settings' => array(),
+            'weight' => 0,
           ),
         ),
         'required' => 0,
-        'description' => '',
+        'description' => 'If you attended a conference but did not present, please select “N/A" and give a description of your EPSCoR-related reason for attending the event under “Please enter a brief description of your presentation."',
         'default_value' => NULL,
+        'readmore_behaviour' => 'default',
         'field_name' => 'field_er_type_of_presentation',
         'entity_type' => 'node',
         'bundle' => 'er_presentation',
@@ -1312,10 +1314,10 @@ $data = array(
             'module' => 'file',
           ),
           'teaser' => array(
-            'label' => 'above',
             'type' => 'hidden',
-            'weight' => '7',
+            'label' => 'above',
             'settings' => array(),
+            'weight' => 0,
           ),
         ),
         'required' => 0,
@@ -1404,13 +1406,10 @@ $data = array(
             'module' => 'entityreference',
           ),
           'teaser' => array(
+            'type' => 'hidden',
             'label' => 'above',
-            'type' => 'entityreference_label',
-            'weight' => '0',
-            'settings' => array(
-              'link' => FALSE,
-            ),
-            'module' => 'entityreference',
+            'settings' => array(),
+            'weight' => 0,
           ),
         ),
         'required' => 0,
@@ -1445,10 +1444,10 @@ $data = array(
             'module' => 'markup',
           ),
           'teaser' => array(
-            'label' => 'above',
             'type' => 'hidden',
-            'weight' => '6',
+            'label' => 'above',
             'settings' => array(),
+            'weight' => 0,
           ),
         ),
         'required' => 0,

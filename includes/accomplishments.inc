@@ -80,7 +80,9 @@ function er_summary_table($variables){
 		'table'=>$ret,
 		'asterisk' => array(
 			'#type' => 'markup',
-			'#markup' => "* Grant/Proposal counts include all grants regardless of status."
+			'#markup' => "* Grant/Proposal counts include all grants regardless of status. Due to the sensitive nature of this content,
+			            only administrators can view all grants/proposals. All users may access their own proposals to view/edit/delete 
+			            under the <a href=\"user\">My Content section of the user profile</a>."
 		),
 		'download' => array(
 			'#type' => 'markup',

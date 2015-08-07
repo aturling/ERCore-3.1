@@ -35,7 +35,7 @@ class er_salary_support extends er_page{
 		er_query_epscor_active_participant_alter($query);//Must be active during the appropriate date range
 		//Only faculty:
 		$query->innerJoin('field_data_'.self::$field_aliases['position_type'], 'position_type', 'users.uid = position_type.entity_id AND position_type.bundle = \'user\'');
-		$query->condition('position_type.'.self::$field_aliases['position_type'].'_value', 'Faculty participants (or equivalent)', '=');
+		$query->condition('position_type.'.self::$field_aliases['position_type'].'_value', 'Faculty participant (or equivalent)', '=');
 		
 		//return the relevant data:
 		$query->leftJoin('field_data_'.self::$field_aliases['inst_abbr'], 'inst_abbr', 'inst.nid = inst_abbr.entity_id');
@@ -123,6 +123,22 @@ class er_salary_support extends er_page{
 				'size'=>12,
 			)
 		));
+
+		$worksheet->mergeCells('D'.$row.':G'.$row);
+		$worksheet->getStyle('D'.$row.':G'.$row)->applyFromArray(array(
+			'font' => array(
+				'italic'=>true,
+				'size'=>12,
+			)
+		));
+
+		$worksheet->mergeCells('H'.$row.':K'.$row);
+		$worksheet->getStyle('A'.$row.':C'.$row)->applyFromArray(array(
+			'font' => array(
+				'italic'=>true,
+				'size'=>12,
+			)
+		));
 	}
 	
 	//Just fill out the names
@@ -149,6 +165,7 @@ class er_salary_support extends er_page{
 			if ($add_rows > 2)
 				$worksheet->insertNewRowBefore($base_row+1, $add_rows-2);
 			
+			$total_user_count = 0;
 			foreach ($data['users'] as $inst_nid=>$users){
 				$inst_name = $inst_nid?$data['inst'][$inst_nid]['name']:'Blank Institution';
 				$abbr_name = $inst_nid?$data['inst'][$inst_nid]['abbr']:$inst_name;
@@ -161,11 +178,14 @@ class er_salary_support extends er_page{
 					$worksheet->setCellValue('B'.$row, $department);
 					$worksheet->setCellValue('C'.$row, $name);
 					$row++;
+					$total_user_count++;
 				}
 				$worksheet->setCellValue('A'.$row, "Total for $inst_name");
 				$this->write_total_formatting($worksheet, $row);
+				$worksheet->setCellValue('D'.$row, count($users));
 				$row++;
 			}
+			$worksheet->setCellValue('D'.$row, $total_user_count);
 		}
 	}
 

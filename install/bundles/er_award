@@ -26,10 +26,10 @@ $data = array(
       ),
       'foreign keys' => array(
         'format' => array(
+          'table' => 'filter_format',
           'columns' => array(
             'format' => 'format',
           ),
-          'table' => 'filter_format',
         ),
       ),
       'indexes' => array(
@@ -94,18 +94,13 @@ $data = array(
         'node' => array(
           0 => 'page',
           1 => 'article',
-          2 => 'blog',
+          2 => 'er_collaboration',
           3 => 'er_award',
-          4 => 'er_event',
+          4 => 'er_publication',
           5 => 'er_institution',
-          6 => 'er_presentation',
-          7 => 'er_proposal',
-          8 => 'er_publication',
-          9 => 'image_gallery',
-          10 => 'node_gallery_gallery',
-          11 => 'node_gallery_image',
-          12 => 'webform',
-          13 => 'er_collaboration',
+          6 => 'er_proposal',
+          7 => 'er_presentation',
+          8 => 'er_event',
         ),
       ),
     ),
@@ -183,11 +178,12 @@ $data = array(
       'entity_types' => array(),
       'settings' => array(
         'target_type' => 'user',
-        'handler' => 'realname',
+        'handler' => 'views',
         'handler_settings' => array(
-          'target_bundles' => array(),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'view_name' => 'non_admin_users',
+            'display_name' => 'entityreference_1',
+            'args' => array(),
           ),
           'behaviors' => array(
             'views-select-list' => array(
@@ -218,10 +214,10 @@ $data = array(
         ),
       ),
       'foreign keys' => array(
-        'node' => array(
-          'table' => 'node',
+        'users' => array(
+          'table' => 'users',
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'uid',
           ),
         ),
       ),
@@ -251,14 +247,13 @@ $data = array(
       'bundles' => array(
         'node' => array(
           0 => 'er_award',
-          1 => 'er_event',
+          1 => 'er_publication',
           2 => 'er_news',
-          3 => 'er_other_product',
-          4 => 'er_patent',
-          5 => 'er_presentation',
-          6 => 'er_proposal',
-          7 => 'er_collaboration',
-          8 => 'er_publication',
+          3 => 'er_patent',
+          4 => 'er_other_product',
+          5 => 'er_proposal',
+          6 => 'er_presentation',
+          7 => 'er_event',
         ),
       ),
     ),
